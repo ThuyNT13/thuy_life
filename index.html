@@ -2,9 +2,56 @@
 <html>
 <head>
   <title>Thuy's life</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/parallax.css">
+  <link rel="stylesheet" href="style/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  Hello World. Welcome to Thuy's life
+
+<!-- Navbar (sit on top) -->
+<nav class="top">
+  <section class="bar" id="navBar">
+    <a class="bar-item button hover-black hide-medium hide-large opennav float-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="bar-item button">HOME</a>
+    <a href="#about" class="bar-item button hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#portfolio" class="bar-item button hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#contact" class="bar-item button hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="bar-item button hide-small float-right hover-red">
+      <i class="fa fa-search"></i>
+    </a>
+  </section>
+
+  <!-- Navbar on small screens -->
+  <section id="navDemo" class="bar-block background-white hide hide-large hide-medium">
+    <a href="#about" class="bar-item button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="bar-item button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="bar-item button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="bar-item button">SEARCH</a>
+  </section>
+</nav>
+
+
+  <div class="container">Hello World. Welcome to Thuy's life</div>
+
+<footer class="center-txt background-black padding-64 opacity hover-opacity-off">
+  <a href="#home" class="button"><i class="fa fa-arrow-up margin-right"></i>To the top</a>
+  <div class="font-xlarge section">
+    <i class="fa fa-github hover-txt-color"></i>
+    <i class="fa fa-instagram hover-txt-color"></i>
+    <i class="fa fa-linkedin hover-txt-color"></i>
+  </div>
+  <p>Based on <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="hover-txt-color">w3.css</a></p>
+</footer>
+
+<script src="js/onClickModal.js"></script>
+<script src="js/onScrollNavbar.js"></script>
+<script src="js/menuToggle.js"></script>
+
 </body>
 </html>
