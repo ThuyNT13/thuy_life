@@ -49,7 +49,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight:inherit;
 }
 
-p a {
+p a, a {
   color: inherit;
 }
 
@@ -386,6 +386,9 @@ hr {
 
 .hover-txt-color:hover {
   color:#f44336!important;
+}
+.hover-font-xlarge:hover {
+  font-size:24px!important;
 }
 
 .opacity {
