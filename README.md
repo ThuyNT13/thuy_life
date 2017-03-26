@@ -132,7 +132,6 @@ Select the *root domain* Alias Record Set and in the **Alias Target** field, del
 
 If all went well, you should now have a secure static website deployed to AWS. Congrats!
 
----
 
 ### REFERENCES
 
