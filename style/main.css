@@ -97,7 +97,7 @@ li:hover {
   padding:12px!important;
 }
 
-.avatar {
+.image {
   max-width:100%;
   height:auto;
 }
@@ -582,9 +582,6 @@ li:hover {
 @media (max-width:992px) and (min-width:601px) {
   .hide-medium {
     display:none!important;
-  }
-  #avatar {
-    padding:48px 60px!important;
   }
 }
 
