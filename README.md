@@ -74,21 +74,7 @@ Do [Step 5: Route DNS Traffic for Your Domain to Your Website Bucke](http://docs
 
 ---
 
-These are the basic steps to deploy a static website to AWS. The steps following are to setup secure HTTPS for your website.
-
-## Setup HTTPS
-
-### Setup Amazon CloudFront Distribution
-
-Navigate to the [**Cloudfront console**](https://console.aws.amazon.com/cloudfront/)
-
-### Request a certificate from AWS Certificate Manager
-
-Navigate to [AWS Certificate Manager Console](https://console.aws.amazon.com/acm/) and make sure the region is set to **U.S. East 1 - N. Virginia**, otherwise, you won't be able to utilize it in **CloudFront**.
-Follow these steps to [Request a Certificate](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html). Add *root domain* and *subdomain* to secure both with the SSL/TSL certificate.
-You will also need to [Validate Domain Ownership](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html).
-
-Once **AWS Certificate** status has changed to *Issued*, navigate back to the [**Cloudfront console**](https://console.aws.amazon.com/cloudfront/)
+These are the basic steps to deploy a static website to AWS. Will post steps for setting up a secure HTTPS for your website, soon.
 
 ---
 
