@@ -1,12 +1,18 @@
-##AWS
+To test out deploying to **AWS** but also just getting the skeleton of a basic website together for reference.
 
-Testing out deploying to **AWS** but also just getting the skeleton of a basic website together for reference.
+## Style
+
+Based off of [W3.CSS templates](https://www.w3schools.com/css/css_rwd_templates.asp). I tweaked to learn how it works and to make it my own, particularly exploring parallax effect, responsive design and different layouts for the navbar.
+
+Major refactoring needed to DRY up code.
+
+## Amazon Web Services (AWS)
 
 Will eventually add back-end functionality with Rails and [deploy to AWS OpsWorks](https://aws.amazon.com/blogs/developer/deploying-ruby-on-rails-applications-to-aws-opsworks/).
 
 For now, here are the notes for **Creating a Basic Static Site with S3, Route 53 and CloudFront**.
 
-First step is to go to [**AWS**](https://aws.amazon.com) and click on the **Create an AWS Account** button to create your account. Keep your phone nearby as you will need to verify your account with a pin that will be sent via text or email.
+First step is to go to [**AWS**](https://aws.amazon.com) and click on the **Create an AWS Account** button. Keep phone nearby as you will need to verify account with a pin that will be sent via text or email.
 
 ### Setup IAM User and assign to Administrator Group
 
@@ -14,7 +20,12 @@ When you first signup to **AWS**, you will get a *root user account* so the next
 
 Once you are signed into AWS, navigate to [AWS IAM Console](https://console.aws.amazon.com/iam/). Follow these steps: [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
 
-Make note of the **IAM users sign-in URL** which looks like `https://MY_ACCOUNT_ID#.signin.aws.amazon.com/console`. You can find it by clicking on Dashboard from the navigation pane. This is the link for signing into AWS each time.
+Make note of the **IAM users sign-in URL** which looks like
+```
+https://MY_ACCOUNT_ID#.signin.aws.amazon.com/console
+```
+
+You can find it by clicking on Dashboard from the navigation pane. This is the link to be used for signing into AWS each time.
 
 Note that `MY_ACCOUNT_ID#` is your account id. That exposes your account info and it looks terrible. Follow these directions to assign an alias to your account: [Your AWS Account ID and its Alias](http://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html)
 
@@ -46,7 +57,7 @@ Navigate to [Amazon S3 console](https://console.aws.amazon.com/s3/). Follow step
 
 Navigate to the [**Amazon Route 53 console**](https://console.aws.amazon.com/route53/)
 
-If you haven't a purchased and registered your domain name, yet, follow [Step 1: Register a domain](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html#getting-started-find-domain-name). Do not continue beyond Step 1.
+If you haven't purchased and registered your domain name, yet, follow [Step 1: Register a domain](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html#getting-started-find-domain-name). Do not continue beyond Step 1.
 
 ---
 
@@ -65,11 +76,13 @@ Do [Step 5: Route DNS Traffic for Your Domain to Your Website Bucke](http://docs
 
 These are the basic steps to deploy a static website to AWS. The steps following are to setup secure HTTPS for your website.
 
+## Setup HTTPS
+
 ### Setup Amazon CloudFront Distribution
 
 Navigate to the [**Cloudfront console**](https://console.aws.amazon.com/cloudfront/)
 
-### Setup HTTPS
+### Request a certificate from AWS Certificate Manager
 
 Navigate to [AWS Certificate Manager Console](https://console.aws.amazon.com/acm/) and make sure the region is set to **U.S. East 1 - N. Virginia**, otherwise, you won't be able to utilize it in **CloudFront**.
 Follow these steps to [Request a Certificate](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html). Add *root domain* and *subdomain* to secure both with the SSL/TSL certificate.
@@ -83,3 +96,12 @@ Once **AWS Certificate** status has changed to *Issued*, navigate back to the [*
 
 - [Setting Up a GoDaddy Domain Name With Amazon Web Services](http://www.mycowsworld.com/blog/2013/07/29/setting-up-a-godaddy-domain-name-with-amazon-web-services/)
 - [Host a Static Site on AWS, using S3 and CloudFront](https://www.davidbaumgold.com/tutorials/host-static-site-aws-s3-cloudfront/)
+
+
+## Support
+
+Please open or respond to [an issue](https://github.com/ThuyNT13/thuy_life/issues) for support.
+
+## Contributing
+
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and open a [pull request](https://github.com/ThuyNT13/thuy_life/pulls). Don't push to master.
