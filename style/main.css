@@ -389,20 +389,6 @@ li:hover {
   width:600px;
 }
 
-.animate-opacity {
-  -webkit-animation:opac 0.8s;
-  animation:opac 0.8s;
-}
-.animate-zoom {
-  -webkit-animation:animatezoom 0.6s;
-  animation:animatezoom 0.6s;
-}
-.animate-top {
-  position:relative;
-  -webkit-animation:animatetop 0.4s;
-  animation:animatetop 0.4s;
-}
-
 .closebtn {
   text-decoration:none;
   float:right;
@@ -463,8 +449,21 @@ li:hover {
 
 .quote {
   padding:8px 10px!important;
-  font: italic 15px/30px Georgia, serif
+  font: italic 15px/30px Georgia, serif;
 }
+.p-quote {
+  padding:8px 8px!important;
+  color:black!important;
+  font-weight: 900;
+  font: italic 20px/35px Georgia, serif;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+span.p-box {
+  padding:4px 8px!important;
+  background-color: #000:
+  opacity: 0.8;
+}
+
 
 .disabled {
   cursor:not-allowed;
