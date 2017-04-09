@@ -6,7 +6,7 @@ Will eventually add back-end functionality with Rails and [deploy to AWS OpsWork
 
 No framework, just CSS.
 
-Based off of [W3.CSS templates](https://www.w3schools.com/css/css_rwd_templates.asp) and tweaked to learn how it works. Particularly exploring parallax effect, responsive design and different layouts for the navbar.
+Based off of [W3.CSS templates](https://www.w3schools.com/css/css_rwd_templates.asp) and tweaked to learn how it works. Particularly exploring parallax effect, responsive design and different layouts for the navbar like having it fixed to bottom of screen instead of top.
 
 - [ ] Major refactoring needed to DRY up code.
 - [ ] Adjust height/padding for small screens.
@@ -22,15 +22,13 @@ When you first signup to **AWS**, you will get a *root user account* so the next
 
 Once you are signed into AWS, navigate to [AWS IAM Console](https://console.aws.amazon.com/iam/). Follow these steps: [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html).
 
-After creating your first **IAM user**, it will generate a link to be used for signing into AWS each time, the **sign-in URL**. You can find it by clicking on Dashboard from the navigation pane. This is what it looks like
+After creating your first *IAM user*, it will generate a link to be used for signing into AWS each time, the [**sign-in URL**](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_how-users-sign-in.html). You can find it by clicking on Dashboard from the navigation pane. This is what it looks like
 
 ```
 https://MY_ACCOUNT_ID#.signin.aws.amazon.com/console
 ```
 
 Note that `MY_ACCOUNT_ID#` is your account id. That needlessly exposes account info and it looks terrible. Follow these directions to assign an alias to your account: [Your AWS Account ID and its Alias](http://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html)
-
-Read more about the **sign-in URL**: [How Users Sign In to Your Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_how-users-sign-in.html)
 
 Sign-out of your *root account* and sign into your newly created *IAM user account* using the **sign-in URL**. The sign-in page has a link to sign-in for *root user* if you need to get there, but everything from here on out should be performed as an *IAM user*.
 
@@ -79,18 +77,19 @@ For troubleshooting, I assigned a value of 0 to *TTL (Time To Live)* to clear ou
 
 ## Setup HTTPS
 
-[AWS Certificate Manager](https://aws.amazon.com/documentation/acm/?icmpid=docs_menu_internal) manages and deploys SSL/TLS certificates that will be needed to setup HTTPS.
+[AWS Certificate Manager](https://aws.amazon.com/documentation/acm/?icmpid=docs_menu_internal) provisions, manages and deploys SSL/TLS certificates that will be needed to setup HTTPS.
 
 [CloudFront](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) is a Content Delivery Network (CDN) service that promises to speed up the distribution of your content. But mostly, for this exercise, it allows you to utilize the SSL certificate to setup HTTPS.
 
 ### Request a Certificate from AWS Certificate Manager
 
-Navigate to [AWS Certificate Manager Console](https://console.aws.amazon.com/acm/) and make sure the region is set to **U.S. East 1 - N. Virginia**, otherwise, you won't be able to utilize it in **CloudFront**.
+Navigate to [AWS Certificate Manager Console](https://console.aws.amazon.com/acm/) and make sure the region is set to **U.S. East 1 - N. Virginia**, otherwise, you won't be able to utilize it in CloudFront.
 
 Follow these steps to [Request a Certificate](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html). Add *root domain* and *subdomain* to secure both with the SSL/TSL certificate.
 You will also need to [Validate Domain Ownership](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html).
+Go here to troubleshoot: [Troubleshooting](http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html)
 
-Once **AWS Certificate** status has changed to *Issued*, you can add the certificate to your CloudFront Distribution.
+Once the AWS Certificate status has changed to *Issued*, you can add the certificate to your CloudFront Distribution.
 
 ### Setup Amazon CloudFront Distribution
 
@@ -98,7 +97,7 @@ Navigate to the [**Cloudfront console**](https://console.aws.amazon.com/cloudfro
 
 Click on **Create Distribution** button and then under **Web** click the **Get Started** button to select Web as your delivery method.
 
-There are a lot of [Distribution Web Values](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.htm) to consider on this page, but just going to focus on a few.
+On the Create Distribution page, there are a lot of [Distribution Web Values](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.htm) to consider, but just going to focus on a few.
 
 1. Open up another window or tab and navigate to the [S3 console](https://console.aws.amazon.com/s3/).
 
@@ -122,21 +121,23 @@ There are a lot of [Distribution Web Values](http://docs.aws.amazon.com/AmazonCl
 
 Now is a good time to go for a long walk as it might take awhile for the process to complete.
 
-Or you could read AWS' guide to [Task List for Creating a Web Distribution](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating.html) or [Values that You Specify When You Create or Update a Web Distribution](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html). There are many more options to explore.
+Or you could read AWS' [Task List for Creating a Web Distribution](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating.html) or [Values that You Specify When You Create or Update a Web Distribution](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html). There are many more options to explore.
 
-## Route to CloudFront
+### Route to CloudFront
 
 Navigate back to the [**Amazon Route 53 console**](https://console.aws.amazon.com/route53/) and select the Hosted Zone you created for your domain.
 
-Select the *root domain* Alias Record Set and in the **Alias Target** field, delete the present value, which should currently be the S3 bucket. Then from the dropdown menu, click the CloudFront Distribution just created. Click **Create** button. Repeat steps for *subdomain*.
+Select the *root domain* **Alias Record Set** and in the **Alias Target** field, delete the present value, which should currently be the S3 bucket. Click on the empty field and there should now be a dropdown menu from which you click the CloudFront Distribution just created. Click **Create** button. Repeat steps for *subdomain*.
 
 If all went well, you should now have a secure static website deployed to AWS. Congrats!
 
+---
 
 ### REFERENCES
 
 - [Setting Up a GoDaddy Domain Name With Amazon Web Services](http://www.mycowsworld.com/blog/2013/07/29/setting-up-a-godaddy-domain-name-with-amazon-web-services/)
 - [Host a Static Site on AWS, using S3 and CloudFront](https://www.davidbaumgold.com/tutorials/host-static-site-aws-s3-cloudfront/)
+- [Enable HTTPS with AWS Certificate Manager, CloudFront, and S3](https://blog.webinista.com/2016/02/enable-https-cloudfront-certificate-manager-s3/index.html)
 
 
 ## Support
