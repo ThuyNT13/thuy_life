@@ -73,8 +73,6 @@ Follow [Step 5: Route DNS Traffic for Your Domain to Your Website Bucke](http://
 
 You should now be able to enter both *root* and *subdomain* into web browsers and see your site. Celebrate!
 
-For troubleshooting, I assigned a value of 0 to *TTL (Time To Live)* to clear out the cache so that changes will be more immediate. This is such a small file, it won't be a performance issue. Afterwards, you can go back into Route 53 and change it for production.
-
 ## Setup HTTPS
 
 [AWS Certificate Manager](https://aws.amazon.com/documentation/acm/?icmpid=docs_menu_internal) provisions, manages and deploys SSL/TLS certificates that will be needed to setup HTTPS.
@@ -129,7 +127,7 @@ Navigate back to the [**Amazon Route 53 console**](https://console.aws.amazon.co
 
 Select the *root domain* **Alias Record Set** and in the **Alias Target** field, delete the present value, which should currently be the S3 bucket. Click on the empty field and there should now be a dropdown menu from which you click the CloudFront Distribution just created. Click **Create** button. Repeat steps for *subdomain*.
 
-If all went well, you should now have a secure static website deployed to AWS. Congrats!
+If all went well, you should now have a *more* secure static website deployed to AWS. Congrats!
 
 ---
 
