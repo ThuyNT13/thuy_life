@@ -2,7 +2,7 @@ This is an on-going project for which I will be documenting in great detail here
 
 The first iteration of the website project is static with just HTML, CSS and JavaScript. The design is responsive, and adjusts to any media screen and content is over **HTTPS** so it's secure. It was deployed using **Amazon Web Services (AWS)** and you can see it here: https://thuy.life
 
-The next step will be to build up the backend in Rails and eventually deploy a dyanmic website.
+The next step will be to build up the backend in Rails and eventually deploy a dynamic website.
 
 ## Support
 
