@@ -1,8 +1,8 @@
-language: ruby
-
-rvm:
- - 2.2.2
-
-# uncomment and edit the following line if your project needs to run something other than `rake`:
-script:
-  - bundle exec rake db:test:prepare
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: thuy.life
+  acl: public_read
+  on:
+    repo: ThuyNT13/thuy_life
