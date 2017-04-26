@@ -8,3 +8,5 @@ deploy:
   acl: public_read
   on:
     repo: ThuyNT13/thuy_life
+
+script: bundle exec rspec spec
