@@ -9,4 +9,6 @@ deploy:
   on:
     repo: ThuyNT13/thuy_life
 
-script: bundle exec rspec spec
+install: true
+
+script: true
