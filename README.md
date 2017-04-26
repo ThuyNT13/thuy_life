@@ -12,4 +12,6 @@ Please open or respond to [an issue](https://github.com/ThuyNT13/thuy_life/issue
 
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and open a [pull request](https://github.com/ThuyNT13/thuy_life/pulls). Don't push to master.
 
+## Travis CI build status
+
 [![Build Status](https://travis-ci.org/ThuyNT13/thuy_life.svg?branch=master)](https://travis-ci.org/ThuyNT13/thuy_life)
