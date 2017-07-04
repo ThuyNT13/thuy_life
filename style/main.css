@@ -421,9 +421,19 @@ li:hover {
   color:#f44336!important;
   background-color:#000!important;
 }
+
 .hover-icons:hover {
   font-size:45px!important;
   padding:0px 25px 0px 25px!important;
+}
+.hover-icon-bluegray:hover {
+  color:#f44336!important;
+  background-color:#607d8b!important;
+}
+.hover-icon-darkgray:hover {
+  color:#f44336!important;
+  background-color:#000!important;
+  opacity:0.80;
 }
 
 .opacity {
