@@ -33,8 +33,6 @@ jobs:
           aws s3 sync . s3://${{ vars.S3_BUCKET }} \
             --delete \
             --exact-timestamps \
-            --exclude ".aws/*" \
-            --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
