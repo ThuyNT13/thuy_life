@@ -21,7 +21,7 @@ jobs:
     environment: production
 
     env:
-      AWS_REGION : us-east-1
+      AWS_REGION: us-east-1
 
     steps:
       - name: Git checkout repository
