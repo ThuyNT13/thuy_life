@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
 
 permissions:
   id-token: write # required for requesting the JWT for OpenID Connect (OIDC)
@@ -36,7 +38,7 @@ jobs:
         run: |
           aws s3 sync . s3://${{ vars.S3_BUCKET }} \
             --delete \
-            --exact-timestamps \
+            --size-only \
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
