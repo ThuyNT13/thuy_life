@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: S3-sync
 
 on:
   push:
@@ -36,3 +36,9 @@ jobs:
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
+
+      - name: invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.CF_DISTRIBUTION_ID }} \
+            --paths "/*"
