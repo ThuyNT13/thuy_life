@@ -36,7 +36,7 @@ jobs:
         run: |
           aws s3 sync . s3://${{ vars.S3_BUCKET }} \
             --delete \
-            --exact-timestamps \
+            --size-only \
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
