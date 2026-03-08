@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: S3-sync
 
 on:
   push:
@@ -8,6 +8,10 @@ on:
 permissions:
   id-token: write # required for requesting the JWT for OpenID Connect (OIDC)
   contents: read  # required for actions/checkout
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -36,3 +40,9 @@ jobs:
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
+
+      - name: invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.CF_DISTRIBUTION_ID }} \
+            --paths "/*"
