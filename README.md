@@ -6,6 +6,10 @@ Will redo the CSS as working with **React** broke it which opened up the possibl
 
 The current iteration was deployed using **Amazon Web Services (AWS)** as can be seen here: https://thuy.life.
 
+## GitHub Actions
+
+Switched from Travis CI to GitHub Actions. Here's my YAML: [aws.yml](/.github/workflows/aws.yml)
+
 ## Support
 Please open or respond to [an issue](https://github.com/ThuyNT13/thuy_life/issues) for support.
 
