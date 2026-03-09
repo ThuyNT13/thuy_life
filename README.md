@@ -4,7 +4,7 @@ The first iteration of the website project is static with just HTML, CSS and Jav
 
 Will redo the CSS as working with **React** broke it which opened up the possiblity of exploring different designs including getting rid of the [hamburger icon](https://www.nngroup.com/articles/hamburger-menus/).
 
-The current iteration was deployed using **Amazon Web Services (AWS)** as can be seen here: https://thuy.life. In process of looking up [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) as others have recommended it would be a good way to deploy.
+The current iteration was deployed using **Amazon Web Services (AWS)** as can be seen here: https://thuy.life.
 
 ## Support
 Please open or respond to [an issue](https://github.com/ThuyNT13/thuy_life/issues) for support.
