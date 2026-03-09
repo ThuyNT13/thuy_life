@@ -9,6 +9,10 @@ permissions:
   id-token: write # required for requesting the JWT for OpenID Connect (OIDC)
   contents: read  # required for actions/checkout
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-slim
