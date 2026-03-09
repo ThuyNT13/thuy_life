@@ -38,6 +38,7 @@ jobs:
           aws s3 sync . s3://${{ vars.S3_BUCKET }} \
             --delete \
             --size-only \
+            --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude "LICENSE"
